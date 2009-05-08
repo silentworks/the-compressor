@@ -41,6 +41,38 @@ define('VIEW_SUFFIX', $config['view_suffix']);
 // Set base url
 define('BASE_URL',  $config['base_url']);
 
+// Database setup
+define('DB_DSN',  $db_driver . ':dbname='. $config[$db_group]['database'] .';host=' . $config[$db_group]['host']);
+define('DB_USER', $config[$db_group]['username']);
+define('DB_PASS', $config[$db_group]['password']);
+
+define('TABLE_PREFIX', $config[$db_group]['prefix']);
+
+define('USE_PDO', $config[$db_group]['pdo']);
+
+if (USE_PDO)
+{
+    try 
+	{
+        $__SE_CONN__ = new PDO(DB_DSN, DB_USER, DB_PASS);
+	} 
+	catch (PDOException $error) 
+	{
+        die('DB Connection failed: '.$error->getMessage());
+	}
+    
+    if ($__SE_CONN__->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql')
+        $__SE_CONN__->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+}
+else
+{
+    require_once SYSPATH . '/libraries/DoLite.php';
+    $__SE_CONN__ = new DoLite(DB_DSN, DB_USER, DB_PASS);
+}
+
+Model::connection($__SE_CONN__);
+Model::getConnection()->exec("set names 'utf8'");
+
 // Set debugger
 define('DEBUG', $config['debug']);
 
