@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Javascript / CSS Compressor | <?php echo $page_title; ?></title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/general.css" media="all" />
+    <style type="text/css" media="all">
+		.page-stats { padding-top: 10px; border-top: 1px solid #ddd; font-size: .83em }
+	</style>
+	<script type="text/javascript" src="/assets/js/jquery-1.2.6.js"></script>
+	<script type="text/javascript" src="/assets/js/general.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="main">
+        <h1>Javascript / CSS Compressor</h1>
+        
+        <?php echo $content_for_layout; ?>
+        
+    </div>
+</div>
+
+<p id="yui">
+	Powered by <img src="/assets/images/yahoo.gif" width="140" height="33" alt="Yahoo"> <a href="http://developer.yahoo.com/yui/compressor/">YUI compressor</a>
+	<br /><br />version 2.4.2
+</p>
+
+<p class="page-stats">Page rendered in <b><?php $bm = Benchmark::get('total'); echo $bm['time']; ?></b> seconds.<br />Use <b><?php echo $bm['memory']; ?></b> of memories.</p>
+
+</body>
+</html>

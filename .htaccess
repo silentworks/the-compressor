@@ -1,0 +1,24 @@
+Options +FollowSymLinks
+AddDefaultCharset UTF-8
+
+order deny,allow
+deny from all
+allow from 127.0.0.101
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  #RewriteBase /green-modified/
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  # Administration URL rewriting.
+  RewriteRule ^admin(.*)$ admin/index.php?$1 [L,QSA]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  # Main URL rewriting.
+  RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+
+</IfModule>

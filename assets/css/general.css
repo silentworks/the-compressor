@@ -1,0 +1,46 @@
+
+body   	 					{ margin: 20px; font: 0.9em/1.3em Helvetica, Arial, sans-serif; }
+#container					{ float: left; width: 100%; }
+
+#main 						{ width: 800px; margin: 0 auto; }
+#main h1					{ text-align: center; padding-bottom: 10px; color: #333; }
+#main .sidebar				{ float: left; width: 250px; }
+#main .sidebar h2			{ font-size: 16px; }
+#main .compressor			{ float: right; width: 470px; margin-right: 20px; }
+
+label						{ display: block; }
+p.action					{ text-align: center; }
+textarea					{ font: 0.8em "Andale Mono", monospace; }
+a							{ color: #0D82C6 }
+a:visited, a:active, a:focus{ color: #DD0F2A }
+
+#files, #fieldAction,
+#compressedFile				{ padding: 10px; background: #eee; }
+#fieldAction				{ padding: 0; margin-top: -15px; border-top: 1px solid #fff; }
+#compressedFile				{ margin-top: 30px; padding-top: 20px; border: 1px solid #5AB5E5; }
+#addFileUpload				{ display: block; padding: 5px 10px; text-align: right; }
+#error-message p			{ font-size: .8em; color: #666; border: 1px solid #666; overflow: auto; }
+
+p.hint,
+span.hint					{ display: block; font-size: 0.9em; font-weight: bold; margin: 0; padding: 3px 5px 0 5px; color: #fff; background: #5AB5E5; border: 1px solid #fff; }
+
+#files label				{ white-space: nowrap; }
+#files label strong			{ float: left; width: 5em; margin: 0.2em; }
+a.remove-field				{ margin-left: 0.5em; }
+a.control					{ text-decoration: none; color: #0D82C6; font-size: 0.9em; }
+a.control:visited			{ color: #0D82C6 }
+a.control:hover				{ background: #ddd; }
+
+#meta input, #meta textarea	{ border: 1px solid #999; padding: 0.2em 0; }
+#meta input					{ padding: 0.2em 0.5em; }
+#meta #name-suffix			{ width: 3em; background: #fff; color: #000; border-color: #ccc; }
+#meta strong				{ font-weight: bold; font-size: 1.2em; }
+#meta .single label			{ width: 8em; }
+#name						{ width: 15em; text-align: right; }
+#file-header				{ width: 100%; }
+#compress-button			{ height: 3em; width: 22em; font-weight: bold; font-size: 1.2em; }
+#compressedFile h3			{ margin-top: 0.5em; }
+#error-message	h3 			{ font-size: .8em; color: #666; padding-top: 20px; }
+
+#yui						{ margin-top: 3em; text-align: center; }
+#yui img					{ position: relative; top: 14px; }

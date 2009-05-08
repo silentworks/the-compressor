@@ -1,0 +1,73 @@
+	<form class="smart-form" method="post" enctype="multipart/form-data" action="home">
+		<div class="sidebar">
+			<h2>Options</h2>
+			<p class="single">
+	            <label for="zipped">Zipped Version:</label> <input type="checkbox" id="zipped" name="zipped" value="1" />
+	        </p>
+		</div>
+		
+		<div class="compressor">
+		    <ol id="hint-content" style="display: none">
+				<li>Select the first file, this will probably be a base framework or library</li>
+				<li>Select the second file, this might be further libraries or plugins</li>
+				<li>Select the third file, this might be specific functionality or your application file</li>
+				<li>Select other files as required</li>
+		    </ol>
+		
+		
+		    <div id="files">
+		        <p class="row">
+		            <label>
+						<strong>File <span class="index">1</span></strong>
+		            	<input type="file" name="upload[]" value="" />
+						<a class="remove-field control" href="#remove">remove</a>
+					</label>
+		        </p>
+		
+		        <!-- further upload fields added here -->
+		    </div>
+		
+		    <div id="fieldAction">
+		        <a id="addFileUpload" class="control" href="#add-file">+ add another file</a>
+		    </div>
+		
+			<div id="meta">
+		
+				 <p>
+		            <label for="name">Name for compressed file:</label>
+		            <input type="text" id="name" name="name" value="" maxlength="40" />
+					<strong>.</strong> <input id="name-suffix" name="name-suffix" disabled="disabled" maxlength="3" />
+		        </p>
+				<p>
+					<label for="file-header">Header comment:</label>
+					<textarea id="file-header" name="file-header" rows="5" cols="40" wrap="off">
+/* 
+Compressed from: [file list]
+On: [date:time]
+For licences see individual files
+*/
+</textarea>
+				</p>
+			</div>
+		    <p class="action">
+		        <input id="compress-button" type="submit" name="submit" value="compress files" />
+		    </p>
+		
+			<?php if($error): ?>
+				<div id="error-message">
+					<h3>Error Message:</h3>
+					<p><?php echo $error; ?></p>
+				</div>
+			<?php endif ?>
+	
+	        <?php if($compressed_file): ?>
+	
+	        <div id="compressedFile">
+	            <p class="hint">Right click and save file...</p>
+	            <h3><?php echo 'Download file: ' . $compressed_file; ?></h3>
+	            <?php if($zipped_file): ?><h3><?php echo 'Download zipped version: ' . $zipped_file; ?></h3> <?php endif ?>
+	        </div>
+	
+	        <?php endif ?>
+	    </div>
+	</form>
