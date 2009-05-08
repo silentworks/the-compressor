@@ -6,7 +6,7 @@
 $application = 'app';
 
 /**
- * Green system directory
+ * Simple Engine system directory
  */
 $system = 'system';
 

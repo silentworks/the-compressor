@@ -14,10 +14,10 @@ class HomeController extends MasterController
     {
     	// Define directory separator
     	define(MYDS, '/');
-    	
+    	echo '/assets' . DS . 'compressor' . DS;
     	if($_POST['submit']){
 			$yui = new Yui;
-			$yui->compressor_dir = 'assets' . DS . 'compressor' . DS;
+			$yui->compressor_dir = '/assets' . DS . 'compressor' . DS;
 			$yui->execute(array_merge($_FILES, $_POST));
 			
 			$this->vars['error'] = $yui->error;

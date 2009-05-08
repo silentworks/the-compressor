@@ -43,11 +43,11 @@ class Yui
 
 		array_pop($PathArray);
 		$dir = implode(MYDS, $PathArray) . MYDS;
-		// var_dump($dir. $this->compressor_dir); die();
+		
 		$input = $dir . $this->tmp_dir . MYDS . $data;
 		$output = $dir . $this->tmp_dir . MYDS . uniqid($fileInfo[filename]) . $this->ext;
 
-		$cmd = "java -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8 -o " . $output . " " . $input . " 2>&1";
+		$cmd = "java -Xmx32m -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8 -o " . $output . " " . $input . " 2>&1";
 		exec($cmd, $out, $err); // Run Compressor
 		unlink($input); // Delete Input File
 

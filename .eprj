@@ -5,7 +5,9 @@
         <key>filters</key>
         <dict>
             <key>excludeDirs</key>
-            <array />
+            <array>
+                <string>.git</string>
+            </array>
             <key>excludeFiles</key>
             <array>
                 <string>*.kpf</string>
