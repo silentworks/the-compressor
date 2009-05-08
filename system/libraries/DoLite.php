@@ -51,7 +51,7 @@ class DoLite
         
         // MySQL connexion
         if ($conn['dbtype'] == 'mysql') {
-            require_once GREEN_ROOT . 'libraries/DoLiteDrivers/DoMysql.php';
+            require_once SYSPATH . '/libraries/DoLiteDrivers/DoMysql.php';
             if (isset($conn['port'])) {
                 $conn['host'] .= ':'.$conn['port'];
             }
@@ -59,12 +59,12 @@ class DoLite
             
         // SQLite connexion
         } else if ($conn['dbtype'] == 'sqlite2' || $conn['dbtype'] == 'sqlite') {
-            require_once GREEN_ROOT . 'libraries/DoLiteDrivers/DoSqlite.php';
+            require_once SYSPATH . '/libraries/DoLiteDrivers/DoSqlite.php';
             $this->_adapter = new DoSqlite($conn['dbname']);
             
         // postgreSQL connexion
         } else if ($conn['dbtype'] == 'pgsql') {
-            require_once GREEN_ROOT . 'libraries/DoLiteDrivers/DoPgsql.php';
+            require_once SYSPATH . '/libraries/DoLiteDrivers/DoPgsql.php';
             $dsn = "host={$conn['host']} dbname={$conn['dbname']} user={$username} password={$password}";
             
             if (isset($conn['port'])) {
