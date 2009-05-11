@@ -1,4 +1,10 @@
-<?php
+<?php defined('SYSPATH') or die('No direct script access.');
+/**
+ * YUI Compressor helper file
+ *
+ * @package default
+ * @author Andrew Smith
+ */
 class Yui
 {
 	var $tmp_dir = 'tmp'; // tmp dir
@@ -7,6 +13,11 @@ class Yui
 	var $fp = array();
 	var $fileList;
 	var $ext;
+	
+	// YUI Parameters
+	var $params = array('nomunge1' => 0,
+						'preserve-semi' => 0,
+						'disable-all-opt' => 0 );
 
 	// Upload file(s)
 	public function upload($data)
@@ -122,7 +133,7 @@ class Yui
 		}
 	}
 
-	// Debug
+	// Debugger
 	public static function debug($data)
 	{
 		echo "<pre>";
