@@ -4,6 +4,8 @@
 			<p class="single">
 	            <label for="zipped">Zipped Version:</label> <input type="checkbox" id="zipped" name="zipped" value="1" />
 	        </p>
+	        <p class="single"><label for="nomunge">Minify Only:</label> <input type="checkbox" id="nomunge" name="nomunge" value="1" /></p>
+	        <p class="single"><label for="preserve-semi">Preserve Semicolons:</label> <input type="checkbox" id="preserve-semi" name="preserve-semi" value="1" /></p>
 		</div>
 		
 		<div class="compressor">
@@ -38,7 +40,7 @@
 		            <input type="text" id="name" name="name" value="" maxlength="40" />
 					<strong>.</strong> <input id="name-suffix" name="name-suffix" disabled="disabled" maxlength="3" />
 		        </p>
-				<p>
+				<p style="display: none">
 					<label for="file-header">Header comment:</label>
 					<textarea id="file-header" name="file-header" rows="5" cols="40" wrap="off">
 /* 
