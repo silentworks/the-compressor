@@ -26,5 +26,17 @@
 
 <p class="page-stats">Page rendered in <b><?php $bm = Benchmark::get('total'); echo $bm['time']; ?></b> seconds.<br />Use <b><?php echo $bm['memory']; ?></b> of memories.</p>
 
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8785440-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- / - Google Analytics -->
+
 </body>
 </html>
