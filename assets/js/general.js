@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 
 	$("#removefield").click(function(e){
-		$("#files p.row:last").prev().remove();
+		$("#body div.file:last").prev().remove();
 		e.preventDefault();
 		return( false );
 	});
@@ -24,19 +24,18 @@ var multiUpload = {
 	
 	init: function () {
 		var that = this;
-		var container = $('#files');
+		var container = $('#body');
 		
 		$('#hint-content li').each(function (i) {
 			that.hints[i] = this.innerHTML;
 		});
 		
-		that.populate($('p.row:last', container), true);
+		that.populate($('div.file:last', container), true);
 		
-		$('#addFileUpload').click(function(e) {
-			var prev = $('p.row:last', container);
+		$('#add-file').click(function(e) {
+			var prev = $('div.file:last', container);
 			container.append(prev.clone());
-			that.populate(container.find('p.row:last'));
-			$('span.hint', prev).fadeOut('slow');
+			that.populate(container.find('div.file:last'));
 			e.preventDefault();
 			this.blur();
 		});
@@ -47,11 +46,11 @@ var multiUpload = {
 	populate: function (row, initial) {
 		var that = this;
 		var index = that.currentIndex;
-		var hint = that.hints[index];
+		var hint = index > 3 ? that.hints[3] : that.hints[index];
 		index++;
 		$('span.index', row).html(index);
 		$('span.hint', row).remove();
-		if (hint) $('label', row).before('<span class="hint">'+ hint +'</span>');
+		if (hint) $('p.row', row).before('<span class="hint">'+ hint +'</span>');
 		$("input[type='file']", row)
 			.val('')
 			.change(function (e) {
@@ -59,14 +58,14 @@ var multiUpload = {
 			});
 		
 		$('a.remove-field', row).click(function (e) {
-			$(this).parents('p.row').remove();
+			$(this).parents('div.file').remove();
 			that.enableRemoveButtons();
 			e.preventDefault();
 		});
 		
 		if (!initial) {
 			row.hide();
-			row.slideDown();
+			row.fadeIn();
 		}
 
 		that.enableRemoveButtons();
@@ -75,7 +74,7 @@ var multiUpload = {
 	},
 	
 	enableRemoveButtons: function () {
-		var buttons = $('#files a.remove-field');
+		var buttons = $('#body .file a.remove-field');
 		if (buttons.length === 1) {
 			buttons.hide();
 		}
@@ -91,7 +90,7 @@ var multiUpload = {
 		var fileType = $('#name-suffix').val();
 		var uploadCount = 0;
 		
-		$('#files input').each(function (i) {
+		$('#body input').each(function (i) {
 			var el = $(this);
 			var ext = el.val() || '';
 			if (ext) uploadCount++;

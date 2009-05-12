@@ -86,6 +86,7 @@ class Yui
 		$rs = @mkdir($newUploadDir, '0755');
 		if($rs)
 		{
+			chmod($newUploadDir, 0755); // Set dir permission
 			file_put_contents($newUploadDir . $filename, $this->processVar($name_set['file-header']) . "\n\n" . $data);
 
 			if(file_exists($newUploadDir . $filename))
