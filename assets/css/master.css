@@ -1,0 +1,54 @@
+body { font-family: Arial, "MS Trebuchet", sans-serif; background: #fff url('../images/background.jpg') no-repeat 50% 0; margin: 0; }
+#container { width: 588px; margin: 0 auto; }
+#header { position: relative; width: 588px; height: 93px; text-align: center; }
+#logo { position: absolute; bottom: 0; left: 142px; }
+#content { position: relative; width: 588px; height: 120px; /*border: 1px solid;*/ margin-top: 31px; }
+#content .left { float: left; width: 225px; }
+#content .left .component { width: 215px; }
+#content .left .component .head { width: 210px; height: 28px; background: transparent url('../images/assets.png') no-repeat -3px -105px; padding: 1px 0 0 10px; }
+#content .left .component h3 { color: #fff; font-size: 0.8em; font-weight: normal; margin: 0; }
+
+#content .right { float: right; width: 346px; margin-bottom: 10px; }
+#content .right .component { width: 346px; }
+#content .right .component .head { width: 346px; height: 28px; background: transparent url('../images/assets.png') no-repeat -3px -145px; padding: 1px 0 0 10px; }
+#content .right .component h3 { color: #fff; font-size: 0.8em; font-weight: normal; margin: 0; }
+#content .right .component #body { float: left; width: 346px; margin-top: 29px; }
+
+#content .right #body .file	{ background: #eee; margin-bottom: 5px; }
+p.hint, span.hint { display: block; font-size: 0.7em; font-weight: normal; margin: 0; padding: 5px; color: #000; background: #dfe0b7; }
+#content .right #body p.row { margin: 0; padding: 10px; }
+#content .right #body .file label	{ white-space: nowrap; }
+#content .right #body .file label strong { float: left; width: 50px; font-size: 0.7em; margin: 0.2em; }
+
+#content .left .component p.single label { float: left; font-size: 0.8em; }
+#content .left .component p.single input { float: right; outline-color: #eee; outline-style: solid; outline-width: 4px; margin-right 10px; }
+
+#action					{ float: right; }
+#add-file				{ display: block; height: 18px; background: transparent url('../images/assets.png') no-repeat 0px -60px; padding: 8px 10px; text-align: right; }
+#add-file:link,
+#add-file:visited		{ color: #fff; }
+#error-message p		{ font-size: .8em; color: #666; border: 1px solid #666; overflow: auto; }
+a.remove-field			{ margin-left: 5px; }
+a.control				{ text-decoration: none; color: #0D82C6; font-size: 0.8em; }
+a.control:visited		{ color: #0D82C6 }
+a.control:hover			{ background: #ddd; }
+
+#compress-action	{ float: left; width: 346px; text-align: right; }
+#compress-button	{ height: 44px; width: 136px; background: transparent url('../images/assets.png') no-repeat 0px 0px; cursor: pointer; text-indent: -266px; border: none; }
+
+#meta-info { float: left; }
+#meta-info p label { display: block; width: 346px; font-size: 0.8em; }
+#meta-info p input { width: 288px; border: 1px solid #999; padding: 0.2em 0; }
+#meta-info #name-suffix	{ width: 36px; background: #fff; color: #000; border-color: #ccc; }
+#meta-info strong { font-weight: bold; font-size: 1.2em; }
+#meta-info #name { text-align: right; }
+#file-header				{ width: 100%; }
+
+#output 			{ float: left; width: 100%; }
+#compressedFile		{ margin-top: 30px; border: 1px solid #5AB5E5; }
+#compressedFile h3	{ font-size: 0.9em; padding: 0 10px; margin-top: 0.5em; }
+#error-message	h3 	{ font-size: .8em; color: #666; padding-top: 20px; }
+
+#footer { clear: both; position: relative; width: 588px; font-size: 0.6em; border-top: 1px solid #ccc; }
+#footer p.yui-version { position: absolute; left: 0; width: 160px; }
+#footer p.copyright { position: absolute; right: 0; width: 300px; text-align: right; }
