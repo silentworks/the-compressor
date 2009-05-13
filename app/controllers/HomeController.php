@@ -37,7 +37,7 @@ class HomeController extends MasterController
 			$this->vars['compressed_file'] = '<a href="' . $file_loc .'" target="_blank">'. $filename .'</a>';
 		}
 		
-    	$this->layout_vars['page_title'] = 'Compressor Form';
+    	$this->layout_vars['page_title'] = 'YUI Compression tool';
         $this->display('home/index', $this->vars);
     }
 }

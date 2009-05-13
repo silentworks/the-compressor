@@ -1,13 +1,9 @@
 Options +FollowSymLinks
 AddDefaultCharset UTF-8
 
-order deny,allow
-deny from all
-allow from 127.0.0.101
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  #RewriteBase /green-modified/
+  #RewriteBase /
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
