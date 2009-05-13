@@ -5,16 +5,12 @@ AddDefaultCharset UTF-8
   RewriteEngine On
   #RewriteBase /
 
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  # Administration URL rewriting.
-  RewriteRule ^admin(.*)$ admin/index.php?$1 [L,QSA]
-
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
+  #RewriteCond %{REQUEST_FILENAME} !-f
+  #RewriteCond %{REQUEST_FILENAME} !-d
+  #RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond $1 !^(index\.php|upload|tmp|assets|robots\.txt)
+  
   # Main URL rewriting.
-  RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+  RewriteRule ^(.*)$ index.php?$1 [L]
 
 </IfModule>
