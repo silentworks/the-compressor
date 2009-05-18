@@ -51,5 +51,5 @@ a.control:hover			{ background: #ddd; }
 #error-message	h3 	{ font-size: .8em; color: #666; padding-top: 20px; }
 
 #footer { clear: both; position: relative; width: 588px; font-size: 0.6em; border-top: 1px solid #ccc; }
-#footer p.yui-version { position: absolute; left: 0; width: 160px; }
+#footer p.yui-version { position: absolute; left: 0; width: 245px; }
 #footer p.copyright { position: absolute; right: 0; width: 300px; text-align: right; }

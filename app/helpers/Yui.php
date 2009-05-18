@@ -15,7 +15,7 @@ class Yui
 	var $ext;
 	
 	// YUI Parameters
-	var $params = array('nomungel' => 0,
+	var $params = array('nomunge' => 0,
 						'preserve-semi' => 0,
 						'disable-all-opt' => 0 );
 
@@ -55,13 +55,12 @@ class Yui
 		array_pop($PathArray);
 		$dir = implode(MYDS, $PathArray) . MYDS;
 		
-		$this->debug($this->params);
-		$this->check($this->params['nomungel'], 'nomungel'); die;
-		
 		$input = $dir . $this->tmp_dir . MYDS . $data;
 		$output = $dir . $this->tmp_dir . MYDS . uniqid($fileInfo[filename]) . $this->ext;
+		
+		// $this->debug($this->check($this->params)); die;
 
-		$cmd = "java -Xmx32m -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8 ". $this->check($this->params['nomungel'], true) ." -o " . $output . " " . $input . " 2>&1";
+		$cmd = "java -Xmx32m -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8". $this->check($this->params) ." -o " . $output . " " . $input . " 2>&1";
 		exec($cmd, $out, $err); // Run Compressor
 		unlink($input); // Delete Input File
 
@@ -137,21 +136,22 @@ class Yui
 		}
 	}
 	
-	public function check($value, $return = '') {
-		if($value == true && $return == '') {
-			return true;
+	public function check($data) {
+		$option = '';
+		foreach($data as $key => $value){
+			if($value === "1"){
+				$option .= ' --' . $key;
+			}
 		}
 		
-		if($value == true && $return != ''){
-			echo '-' . $return;
-		}
+		return $option;
 	}
 
 	// Debugger
 	public static function debug($data)
 	{
 		echo "<pre>";
-		print_r($data);
+		var_dump($data);
 		echo "</pre>";
 	}
 }
