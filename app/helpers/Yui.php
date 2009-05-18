@@ -15,7 +15,7 @@ class Yui
 	var $ext;
 	
 	// YUI Parameters
-	var $params = array('nomunge1' => 0,
+	var $params = array('nomungel' => 0,
 						'preserve-semi' => 0,
 						'disable-all-opt' => 0 );
 
@@ -55,10 +55,13 @@ class Yui
 		array_pop($PathArray);
 		$dir = implode(MYDS, $PathArray) . MYDS;
 		
+		$this->debug($this->params);
+		$this->check($this->params['nomungel'], 'nomungel'); die;
+		
 		$input = $dir . $this->tmp_dir . MYDS . $data;
 		$output = $dir . $this->tmp_dir . MYDS . uniqid($fileInfo[filename]) . $this->ext;
 
-		$cmd = "java -Xmx32m -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8 -o " . $output . " " . $input . " 2>&1";
+		$cmd = "java -Xmx32m -jar " . $dir . $this->compressor_dir . "yuicompressor-2.4.2.jar --charset UTF-8 ". $this->check($this->params['nomungel'], true) ." -o " . $output . " " . $input . " 2>&1";
 		exec($cmd, $out, $err); // Run Compressor
 		unlink($input); // Delete Input File
 
@@ -131,6 +134,16 @@ class Yui
 		if($this->upload($data))
 		{
 			$this->write($this->fp['content'], $data);
+		}
+	}
+	
+	public function check($value, $return = '') {
+		if($value == true && $return == '') {
+			return true;
+		}
+		
+		if($value == true && $return != ''){
+			echo '-' . $return;
 		}
 	}
 

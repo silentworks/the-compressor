@@ -18,6 +18,7 @@ class HomeController extends MasterController
     	if($_POST['submit']){
 			$yui = new Yui;
 			$yui->compressor_dir = '/assets' . DS . 'compressor' . DS;
+			$yui->params = array('nomungel' => $_POST['nomungel'], 'preserve-semi' => $_POST['preserve-semi']);
 			$yui->execute(array_merge($_FILES, $_POST));
 			
 			$this->vars['error'] = $yui->error;
